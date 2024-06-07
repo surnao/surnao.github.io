@@ -9213,3 +9213,9 @@ body.okayNav-loaded {
     max-height: 200px;
   }
 }
+.vpower.txt-right {
+  display: none;
+}
+.vempty{
+  display: none !important;
+}
