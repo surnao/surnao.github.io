@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://example.com/2024/06/05/hello-world/</loc>
-    <lastmod>2024-06-05</lastmod>
+    <loc>https://surbao.top/2024/06/07/sort%E6%8E%92%E5%BA%8F/</loc>
+    <lastmod>2024-06-07</lastmod>
+  </url>
+  <url>
+    <loc>https://surbao.top/2024/06/07/cookie%E3%80%81sessionStorage%20%E5%92%8C%20localStorage/</loc>
+    <lastmod>2024-06-07</lastmod>
   </url>
 </urlset> 

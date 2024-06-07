@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>sort排序 | 七九繁星志</title>
+  <meta name="description" content="定义及用法sort()  方法用于对数组的元素进行排序，并返回数组。排序顺序可以是按字母或数字，也可以是升序（向上）或降序（向下）。默认排序顺序是根据字符串UniCode码。 语法：Array.sort(sortBy); 参数sortBy可选，用来规定排序的顺序，但必须是函数。 例1在数组中的值为number​类型时，结果并不是和正常排序一样，而是字符编码的出现顺序排列的。 12var arr &#x3D;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sort排序">
+<meta property="og:url" content="https://surbao.top/2024/06/07/sort%E6%8E%92%E5%BA%8F/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="定义及用法sort()  方法用于对数组的元素进行排序，并返回数组。排序顺序可以是按字母或数字，也可以是升序（向上）或降序（向下）。默认排序顺序是根据字符串UniCode码。 语法：Array.sort(sortBy); 参数sortBy可选，用来规定排序的顺序，但必须是函数。 例1在数组中的值为number​类型时，结果并不是和正常排序一样，而是字符编码的出现顺序排列的。 12var arr &#x3D;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-06-07T06:21:48.138Z">
+<meta property="article:modified_time" content="2024-06-07T06:26:13.862Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="sort">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://surbao.top/2024/06/07/sort%E6%8E%92%E5%BA%8F/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/surnao" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">surbao</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">浮生若梦,为欢几何?</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> 兰州, 中国</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/surnao" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>绿蚁新醅酒，红泥小火炉。</br>晚来天欲雪，能饮一杯无？</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/">浏览器</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/sort/" rel="tag">sort</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%93%E5%AD%98/" rel="tag">缓存</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/sort/" style="font-size: 13px;">sort</a> <a href="/tags/%E7%BC%93%E5%AD%98/" style="font-size: 13px;">缓存</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">六月 2024</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/JS/">JS</a>
+              </p>
+              <p class="item-title">
+                <a href="/2024/06/07/sort%E6%8E%92%E5%BA%8F/" class="title">sort排序</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2024-06-07T06:21:48.138Z" itemprop="datePublished">2024-06-07</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/">浏览器</a>
+              </p>
+              <p class="item-title">
+                <a href="/2024/06/07/cookie%E3%80%81sessionStorage%20%E5%92%8C%20localStorage/" class="title">cookie、sessionStorage 和 localStorage</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2024-06-07T06:15:10.305Z" itemprop="datePublished">2024-06-07</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-sort排序" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      sort排序
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2024/06/07/sort%E6%8E%92%E5%BA%8F/" class="article-date">
+	  <time datetime="2024-06-07T06:21:48.138Z" itemprop="datePublished">2024-06-07</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/JS/">JS</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/sort/" rel="tag">sort</a>
+  </span>
+
+
+        
+
+	<span class="article-read hidden-xs">
+    	<i class="icon icon-eye-fill" aria-hidden="true"></i>
+    	<span id="/2024/06/07/sort%E6%8E%92%E5%BA%8F/" class="leancloud_visitors"  data-flag-title="sort排序">0</span>
+    </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2024/06/07/sort%E6%8E%92%E5%BA%8F/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.4k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 6(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h4 id="定义及用法"><a href="#定义及用法" class="headerlink" title="定义及用法"></a>定义及用法</h4><p>sort()  方法用于对数组的元素进行排序，并返回数组。排序顺序可以是按字母或数字，也可以是升序（向上）或降序（向下）。默认排序顺序是根据字符串UniCode码。</p>
+<p>语法：Array.sort(sortBy);</p>
+<p>参数sortBy可选，用来规定排序的顺序，但必须是函数。</p>
+<h5 id="例1"><a href="#例1" class="headerlink" title="例1"></a>例1</h5><p>在数组中的值为<code>number</code>​类型时，结果并不是和正常排序一样，而是字符编码的出现顺序排列的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">2</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">8</span>, <span class="number">2</span>, <span class="number">10</span>]</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr.<span class="title function_">sort</span>())  <span class="comment">//[ 10, 2, 2, 6, 8, 8 ]</span></span><br></pre></td></tr></table></figure>
+
+<p>如要得到想要的结果，不管是升序还是降序，就需要提供比较函数了。该函数比较两个值的大小，然后返回一个用于说明这两个值的相对顺序的数字。</p>
+<p>比较函数应该具有两个参数 a 和 b，其返回值如下：</p>
+<ul>
+<li>若 a 小于 b，即 a - b 小于零，则返回一个小于零的值，数组将按照升序排列。</li>
+<li>若 a 等于 b，则返回零。</li>
+<li>若 a 大于 b, 即 a - b 大于零，则返回一个大于零的值，数组将按照降序排列。</li>
+</ul>
+<h5 id="例2-升序排列"><a href="#例2-升序排列" class="headerlink" title="例2  升序排列"></a>例2  <strong>升序排列</strong></h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">2</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">8</span>, <span class="number">2</span>, <span class="number">10</span>]</span><br><span class="line">    arr.<span class="title function_">sort</span>(<span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> a - b</span><br><span class="line">    &#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr)<span class="comment">//[2, 2, 6, 8, 8, 10]</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="例3-降序排列"><a href="#例3-降序排列" class="headerlink" title="例3 降序排列"></a>例3 降序排列</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">2</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">8</span>, <span class="number">2</span>, <span class="number">10</span>]</span><br><span class="line">    arr.<span class="title function_">sort</span>(<span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> b - a</span><br><span class="line">    &#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr)<span class="comment">//[ 10, 8, 8, 6, 2, 2 ]</span></span><br></pre></td></tr></table></figure>
+
+<p>追根究底，a指什么？b指什么？内部用怎样的方法实现的排序？</p>
+<p>首先改变数组，看一下a指的到底是什么</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">6</span>, <span class="number">8</span>, <span class="number">2</span>, <span class="number">10</span>, <span class="number">1</span>]</span><br><span class="line">    arr.<span class="title function_">sort</span>(<span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a:&quot;</span> + a)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr)</span><br><span class="line"><span class="comment">//a:8</span></span><br><span class="line"><span class="comment">//a:2</span></span><br><span class="line"><span class="comment">//a:10</span></span><br><span class="line"><span class="comment">//a:1</span></span><br><span class="line"><span class="comment">//[6, 8, 2, 10, 1]</span></span><br></pre></td></tr></table></figure>
+
+<p>很容易看出a的范围是<code>[arr[1],arr[arr.length-1]]</code>​.另外能看出当函数返回一个正值时，数组并没有发生变化（0也是）</p>
+<p>接下来再看一下b指的是什么</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">6</span>, <span class="number">8</span>, <span class="number">2</span>, <span class="number">10</span>, <span class="number">1</span>]</span><br><span class="line">    arr.<span class="title function_">sort</span>(<span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;b:&quot;</span> + b)</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr)</span><br><span class="line"><span class="comment">//b:6</span></span><br><span class="line"><span class="comment">//b:8</span></span><br><span class="line"><span class="comment">//b:2</span></span><br><span class="line"><span class="comment">//b:10</span></span><br><span class="line"><span class="comment">//[1, 10, 2, 8, 6]</span></span><br></pre></td></tr></table></figure>
+
+<p>b的范围<code>[arr[0],arr[arr.length-2]</code>​，另外在这里还获得一个使数组反序的方法（另外一个是数组的<code>reverse()</code>​方法）</p>
+<p>a和b的范围就这样被简单的确定了，但在真正排序的时候就不是这样简单了</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">6</span>, <span class="number">8</span>, <span class="number">2</span>, <span class="number">10</span>, <span class="number">1</span>]</span><br><span class="line">    arr.<span class="title function_">sort</span>(<span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;b:&quot;</span> + b)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a:&quot;</span> + a)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;------&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> a - b</span><br><span class="line">&#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr)</span><br><span class="line"><span class="comment">//b:6</span></span><br><span class="line"><span class="comment">//a:8</span></span><br><span class="line"><span class="comment">//------</span></span><br><span class="line"><span class="comment">//b:8</span></span><br><span class="line"><span class="comment">//a:2</span></span><br><span class="line"><span class="comment">//------</span></span><br><span class="line"><span class="comment">//b:8</span></span><br><span class="line"><span class="comment">//a:2</span></span><br><span class="line"><span class="comment">//------</span></span><br><span class="line"><span class="comment">//b:6</span></span><br><span class="line"><span class="comment">//a:2</span></span><br><span class="line"><span class="comment">//------</span></span><br><span class="line"><span class="comment">//b:6</span></span><br><span class="line"><span class="comment">//a:10</span></span><br><span class="line"><span class="comment">//------</span></span><br><span class="line"><span class="comment">//b:8</span></span><br><span class="line"><span class="comment">//a:10</span></span><br><span class="line"><span class="comment">//------</span></span><br><span class="line"><span class="comment">//b:8</span></span><br><span class="line"><span class="comment">//a:1</span></span><br><span class="line"><span class="comment">//------</span></span><br><span class="line"><span class="comment">//b:6</span></span><br><span class="line"><span class="comment">//a:1</span></span><br><span class="line"><span class="comment">//------</span></span><br><span class="line"><span class="comment">//b:2</span></span><br><span class="line"><span class="comment">//a:1</span></span><br><span class="line"><span class="comment">//------</span></span><br><span class="line"><span class="comment">//[1, 2, 6, 8, 10]</span></span><br></pre></td></tr></table></figure>
+
+<p>先把数据整理一下</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//[6, 8, 2, 10, 1]</span></span><br><span class="line">[&#123; <span class="attr">b</span>: <span class="number">6</span>, <span class="attr">a</span>: <span class="number">8</span> &#125;],</span><br><span class="line">[&#123; <span class="attr">b</span>: <span class="number">8</span>, <span class="attr">a</span>: <span class="number">2</span> &#125;, &#123; <span class="attr">b</span>: <span class="number">8</span>, <span class="attr">a</span>: <span class="number">2</span> &#125;, &#123; <span class="attr">b</span>: <span class="number">6</span>, <span class="attr">a</span>: <span class="number">2</span> &#125;],</span><br><span class="line">[&#123; <span class="attr">b</span>: <span class="number">6</span>, <span class="attr">a</span>: <span class="number">10</span> &#125;, &#123; <span class="attr">b</span>: <span class="number">8</span>, <span class="attr">a</span>: <span class="number">10</span> &#125;],</span><br><span class="line">[&#123; <span class="attr">b</span>: <span class="number">8</span>, <span class="attr">a</span>: <span class="number">1</span> &#125;, &#123; <span class="attr">b</span>: <span class="number">6</span>, <span class="attr">a</span>: <span class="number">1</span> &#125;, &#123; <span class="attr">b</span>: <span class="number">2</span>, <span class="attr">a</span>: <span class="number">1</span> &#125;],</span><br></pre></td></tr></table></figure>
+
+<p>通过测试以及研究源码<a target="_blank" rel="noopener" href="https://github.com/v8/v8/blob/98d735069d0937f367852ed968a33210ceb527c2/src/js/array.js#L709">v8源码sort部分</a>可得出结论，如果要排序的元素个数是 <code>n</code>​的时候，会有以下几种情况：</p>
+<ol>
+<li>当 <code>n&lt;=10</code>​时，采用插入排序；</li>
+<li>当<code>10&lt;n&lt;=1000</code>​时，采用中位数作为哨兵元素；</li>
+<li>当<code>n&gt;1000</code>​，每隔<code>200~215</code>​个元素挑出一个元素，放到一个新数组中，然后对它排序，找到中间位置的数，以此作为中位数。</li>
+</ol>
+<h4 id="按照数组对象的某个属性排序"><a href="#按照数组对象的某个属性排序" class="headerlink" title="按照数组对象的某个属性排序"></a><strong>按照数组对象的某个属性排序</strong></h4><h5 id="例4"><a href="#例4" class="headerlink" title="例4"></a>例4</h5><p>现在有一组对象，包含”id，value”等属性，实现按照value对这些对象进行排序。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [</span><br><span class="line">   &#123; <span class="attr">id</span>: <span class="string">&#x27;1&#x27;</span>, <span class="attr">value</span>: <span class="number">100</span> &#125;,</span><br><span class="line">   &#123; <span class="attr">id</span>: <span class="string">&#x27;2&#x27;</span>, <span class="attr">value</span>: <span class="number">120</span> &#125;,</span><br><span class="line">   &#123; <span class="attr">id</span>: <span class="string">&#x27;3&#x27;</span>, <span class="attr">value</span>: <span class="number">80</span> &#125;,</span><br><span class="line">   &#123; <span class="attr">id</span>: <span class="string">&#x27;4&#x27;</span>, <span class="attr">value</span>: <span class="number">90</span> &#125;,</span><br><span class="line">   &#123; <span class="attr">id</span>: <span class="string">&#x27;5&#x27;</span>, <span class="attr">value</span>: <span class="number">130</span> &#125;</span><br><span class="line">]</span><br><span class="line">arr.<span class="title function_">sort</span>(<span class="keyword">function</span> <span class="title function_">sortBy</span>(<span class="params">a, b</span>) &#123;</span><br><span class="line">   <span class="keyword">return</span> a.<span class="property">value</span> - b.<span class="property">value</span>;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr)</span><br><span class="line"><span class="comment">//&#123;id: &#x27;3&#x27;, value: 80&#125;</span></span><br><span class="line"><span class="comment">//&#123;id: &#x27;4&#x27;, value: 90&#125;</span></span><br><span class="line"><span class="comment">//&#123;id: &#x27;1&#x27;, value: 100&#125;</span></span><br><span class="line"><span class="comment">//&#123;id: &#x27;2&#x27;, value: 120&#125;</span></span><br><span class="line"><span class="comment">//&#123;id: &#x27;5&#x27;, value: 130&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>假如现在不规定按照哪一个属性排序，比如除了value属性，还有其他的属性</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [</span><br><span class="line">   &#123; <span class="attr">id</span>: <span class="string">&#x27;1&#x27;</span>, <span class="attr">value</span>: <span class="number">100</span> &#125;,</span><br><span class="line">   &#123; <span class="attr">id</span>: <span class="string">&#x27;2&#x27;</span>, <span class="attr">value</span>: <span class="number">120</span> &#125;,</span><br><span class="line">   &#123; <span class="attr">id</span>: <span class="string">&#x27;3&#x27;</span>, <span class="attr">value</span>: <span class="number">80</span> &#125;,</span><br><span class="line">   &#123; <span class="attr">id</span>: <span class="string">&#x27;4&#x27;</span>, <span class="attr">value</span>: <span class="number">90</span> &#125;,</span><br><span class="line">   &#123; <span class="attr">id</span>: <span class="string">&#x27;5&#x27;</span>, <span class="attr">value</span>: <span class="number">130</span> &#125;</span><br><span class="line">]</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">sortBy</span>(<span class="params">props</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params">a,b</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> a[props] - b[props];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">arr.<span class="title function_">sort</span>(<span class="title function_">sortBy</span>(<span class="string">&quot;value&quot;</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr)</span><br><span class="line"><span class="comment">//&#123;id: &#x27;3&#x27;, value: 80&#125;</span></span><br><span class="line"><span class="comment">//&#123;id: &#x27;4&#x27;, value: 90&#125;</span></span><br><span class="line"><span class="comment">//&#123;id: &#x27;1&#x27;, value: 100&#125;</span></span><br><span class="line"><span class="comment">//&#123;id: &#x27;2&#x27;, value: 120&#125;</span></span><br><span class="line"><span class="comment">//&#123;id: &#x27;5&#x27;, value: 130&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>假如value相等的情况下，是否可以按照其他属性的大小排序输出</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [</span><br><span class="line">   &#123; <span class="attr">id</span>: <span class="string">&#x27;1&#x27;</span>, <span class="attr">value</span>: <span class="number">100</span> &#125;,</span><br><span class="line">   &#123; <span class="attr">id</span>: <span class="string">&#x27;2&#x27;</span>, <span class="attr">value</span>: <span class="number">120</span> &#125;,</span><br><span class="line">   &#123; <span class="attr">id</span>: <span class="string">&#x27;4&#x27;</span>, <span class="attr">value</span>: <span class="number">80</span> &#125;,</span><br><span class="line">   &#123; <span class="attr">id</span>: <span class="string">&#x27;3&#x27;</span>, <span class="attr">value</span>: <span class="number">80</span> &#125;,</span><br><span class="line">   &#123; <span class="attr">id</span>: <span class="string">&#x27;5&#x27;</span>, <span class="attr">value</span>: <span class="number">130</span> &#125;</span><br><span class="line">]</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">sortBy</span>(<span class="params">val1,val2</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params">a,b</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span>(a.<span class="property">val1</span>== b.<span class="property">val1</span>) <span class="keyword">return</span> a.<span class="property">val2</span>- b.<span class="property">val2</span>;</span><br><span class="line">        <span class="keyword">return</span> a.<span class="property">val1</span>- b.<span class="property">val1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">arr.<span class="title function_">sort</span>(<span class="title function_">sortBy</span>(<span class="string">&quot;value&quot;</span>,<span class="string">&quot;id&quot;</span>));</span><br><span class="line"><span class="comment">//&#123;id: &#x27;3&#x27;, value: 80&#125;</span></span><br><span class="line"><span class="comment">//&#123;id: &#x27;4&#x27;, value: 80&#125;</span></span><br><span class="line"><span class="comment">//&#123;id: &#x27;1&#x27;, value: 100&#125;</span></span><br><span class="line"><span class="comment">//&#123;id: &#x27;2&#x27;, value: 120&#125;</span></span><br><span class="line"><span class="comment">//&#123;id: &#x27;5&#x27;, value: 130&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>如此，即可实现，甚至可以使用argments来获取更多的参数，用以传入更多的字段作为判断条件。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ol>
+<li>​<code>sort()</code>​方法没有参数时，按照字符的Unicode进行排序（把数组里面当成字符串处理）</li>
+<li>通过给<code>sort()</code>​的参数返回一个负值可以实现数组<code>reverse()</code>​效果</li>
+<li>​<code>sort()</code>​ 参数返回 <code>a - b</code>​时，数组是升序，返回<code>-(a - b)</code>​ 即<code>b - a</code>​时，数组是降序</li>
+</ol>
+<p>‍</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://surbao.top/2024/06/07/sort%E6%8E%92%E5%BA%8F/" title="sort排序" target="_blank" rel="external">https://surbao.top/2024/06/07/sort排序/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+<!-- 
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/surnao" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/surnao" target="_blank"><span class="text-dark">surbao</span><small class="ml-1x">浮生若梦,为欢几何?</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+ -->
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2024/06/07/cookie%E3%80%81sessionStorage%20%E5%92%8C%20localStorage/" title="cookie、sessionStorage 和 localStorage"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+  
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/surnao" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+  <div class="copyright">
+    
+    <div class="publishby">
+      <span>醉后不知天在水,满船清梦压星河</span>
+    </div>
+    <!-- <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div> -->
+  </div>
+</footer>
+
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: true,
+    appId: 'ftoe38VZeXrdgOqunP0Hupkl-gzGzoHsz',
+    appKey: '8LO2WZlRXgPcHexsZ7gzlkMY',
+    placeholder: '扬帆欲行待指南，望君一语破浪惊!',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: true
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
